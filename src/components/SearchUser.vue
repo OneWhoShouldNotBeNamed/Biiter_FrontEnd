@@ -20,10 +20,8 @@ export default {
   data() {
     return{
         user: null
-    }
-    
+    }   
   },
-
   methods: {
     searchuser() {
       // console.log(this)

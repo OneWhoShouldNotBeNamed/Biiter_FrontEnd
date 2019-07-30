@@ -6,6 +6,5 @@ export const BEATS_URI = '/user';
 export const POSTBEATS_URI ='/user/addbeat';
 export const SEARCH_URI ='/user';
 export const LIKEBEATS_URI ='/user/l';
-//export const DISLIKE_URI ='/user/unlike';
-
-//export const POSTBEATS_URI ='/user/addbeat'
+export const FOLLOW_URI ='/user/follow';
+// export const POSTBEATS_URI ='/user/addbeat'

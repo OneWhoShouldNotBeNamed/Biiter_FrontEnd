@@ -3,14 +3,16 @@
    <srchusr @search_user="search"></srchusr>
    <div class="user-list" v-if="users">
      <!-- <p>{{users[0].id}}</p> -->
-   <ViewUsers v-for="user in users" :key="user['id']" :user="user" ></ViewUsers>
+   <ViewUsers v-for="user in users" :key="user['id']" :user="user" @follow_user="follow_user" ></ViewUsers>
   </div>
 </div>
 </template>
 <script>
 /* eslint-disable */
 import { get } from "@/common/api.service";
+import { post } from "@/common/api.service";
 import { SEARCH_URI } from "@/common/config";
+import { FOLLOW_URI } from "@/common/config";
 import srchusr from "@/components/SearchUser.vue";
 import ViewUsers from "@/components/ViewUsers.vue";
 
@@ -52,7 +54,21 @@ export default {
           console.log(err);
         });
     },
+    async follow_user(id) {
+      console.log(id)
+      await post(FOLLOW_URI, {
+        id:id,
+        uid: jwt(localStorage.getItem("usertoken")).id
+      })
+        .then(res => {
+          console.log(res);
+          // this.$router.push({ name: "AddBeats" });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+
   }
 }
-
 </script>

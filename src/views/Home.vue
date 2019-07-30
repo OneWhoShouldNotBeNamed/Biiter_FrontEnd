@@ -78,7 +78,7 @@ export default {
 
     async handleLikeBeet(params) {
       //console.log('Like'+params);
-      await post(LIKEBEATS_URI, {
+      await post(LIKEBEATS_URI,{
         beat: params,
         uid: jwt(localStorage.getItem("usertoken")).id,
         sts:'Like'

@@ -3,6 +3,7 @@
         <p>{{ user.id }}</p>
         <!-- <input type="hidden" id="userId" name="userId" v-text={{ user.id }}> -->
         <p>{{ user.name }}</p>
+        <button @click ="Follow(user.id)">Follow</button>
     </div>
 </template>
 
@@ -14,13 +15,13 @@ export default {
     props: {
         user:null
     },
-    // methods: {
-    //     Follow(id) {
-    //         // console.log(this)
-    //         this.$emit('follow_user', id);
-    //     }
+    methods: {
+        Follow(id) {
+            // console.log(id)
+            this.$emit('follow_user', id);
+        }
         
-    // }    
+    }    
 }
 </script>
 
